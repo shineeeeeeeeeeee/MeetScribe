@@ -43,8 +43,8 @@ export default function CompanyDashboard() {
     companyEmail: "company@email.com",
   };
 
-  const CACHE_KEY_INFO = `tasklink_company_info_cache_${companyId}`;
-  const CACHE_KEY_POSTINGS = `tasklink_company_postings_cache_${companyId}`;
+  const CACHE_KEY_INFO = `MeetScribe_company_info_cache_${companyId}`;
+  const CACHE_KEY_POSTINGS = `MeetScribe_company_postings_cache_${companyId}`;
 
   // Initialize state from cache to prevent flicker
   const [companyInfo, setCompanyInfo] = useState(() => {
@@ -102,7 +102,7 @@ export default function CompanyDashboard() {
         if (profileData?.company) {
           const info = {
             companyName: profileData.company.companyName || "Company",
-            companyEmail: profileData.company.email || "recruiter@tasklink.com",
+            companyEmail: profileData.company.email || "recruiter@MeetScribe.com",
           };
           setCompanyInfo(info);
           sessionStorage.setItem(CACHE_KEY_INFO, JSON.stringify(info));
@@ -541,7 +541,7 @@ ${job.description}
       <header className="dashboard-header">
         <div className="header-container">
           <div className="header-brand">
-            <img src={logo} alt="TaskLink" className="brand-logo" />
+            <img src={logo} alt="MeetScribe" className="brand-logo" />
             <h1 className="brand-name">Dashboard</h1>
           </div>
           <div className="header-actions">

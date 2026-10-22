@@ -2,8 +2,8 @@ import pickle
 import os
 from pprint import pprint
 
-model_path = "../models/intent_model.pkl"
-vec_path = "../models/vectorizer.pkl"
+model_path = "./models/intent_model.pkl"
+vec_path = "./models/vectorizer.pkl"
 
 test_messages = ["hi", "hello", "hey", "bye", "company", "internship"]
 

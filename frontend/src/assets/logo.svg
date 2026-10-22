@@ -12,6 +12,6 @@
     <circle cx="100" cy="20" r="10" fill="url(#grad3)"/>
     <path d="M10 20L50 0L100 20" fill="none" stroke="url(#grad3)" stroke-width="5"/>
   </g>
-  <text x="150" y="90" font-size="60" font-family="Poppins, sans-serif" font-weight="700" fill="#222">Task</text>
-  <text x="300" y="90" font-size="60" font-family="Poppins, sans-serif" font-weight="700" fill="url(#grad3)">Link</text>
+  <text x="150" y="90" font-size="60" font-family="Poppins, sans-serif" font-weight="700" fill="#222">Meet</text>
+  <text x="300" y="90" font-size="60" font-family="Poppins, sans-serif" font-weight="700" fill="url(#grad3)">Scribe</text>
 </svg>

@@ -39,7 +39,7 @@ export default function CompanyProfile() {
         companyRegistrationDocument: null
     };
 
-    const CACHE_KEY = `tasklink_company_profile_cache_${companyId}`;
+    const CACHE_KEY = `MeetScribe_company_profile_cache_${companyId}`;
 
     const [profile, setProfile] = useState(() => {
         const cached = sessionStorage.getItem(CACHE_KEY);
@@ -202,7 +202,7 @@ export default function CompanyProfile() {
                         onClick={() => navigate(`/c/${companyId}`)}
                         style={{ cursor: "pointer" }}
                     >
-                        <img src={logo} alt="TaskLink" className="brand-logo" />
+                        <img src={logo} alt="MeetScribe" className="brand-logo" />
                         <h1 className="brand-name">Profile</h1>
                     </div>
 
@@ -256,7 +256,7 @@ export default function CompanyProfile() {
                         <div className="mini-avatar">🏢</div>
                         <div className="mini-info">
                             <h4>{profile?.companyName || "Company"}</h4>
-                            <p>{profile?.email || "recruiter@tasklink.com"}</p>
+                            <p>{profile?.email || "recruiter@MeetScribe.com"}</p>
                         </div>
                     </div>
                 </aside>
@@ -383,7 +383,7 @@ export default function CompanyProfile() {
                                             </div>
                                             <div className="detail-item">
                                                 <label>Email Address</label>
-                                                <span>{profile?.email || "admin@tasklink.com"}</span>
+                                                <span>{profile?.email || "admin@MeetScribe.com"}</span>
                                             </div>
                                         </div>
                                     </div>

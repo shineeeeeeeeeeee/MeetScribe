@@ -364,7 +364,7 @@ function StudentDashboard() {
       {/* -------------------------------------------HEADER------------------------------------------------------ */}
       <header className="main-header">
         <div className="header-left">
-          <img src={logo} alt="TaskLink" className="app-logo" />
+          <img src={logo} alt="MeetScribe" className="app-logo" />
           <div className="header-search">
             <Search size={18} className="search-icon" />
             <input
@@ -584,7 +584,7 @@ function StudentDashboard() {
 
       {/* -------------------------------------------FOOTER------------------------------------------------------ */}
       <footer className="simple-dash-footer">
-        <p>© {new Date().getFullYear()} TaskLink — Building Future Careers</p>
+        <p>© {new Date().getFullYear()} MeetScribe — Building Future Careers</p>
       </footer>
 
       <Chatbot />

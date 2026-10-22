@@ -40,7 +40,7 @@ function Home()
       name: "Kunal Shah",
       role: "SDE @ ExampleCorp",
       quote:
-        "TaskLink's project-driven tracks and mentorship helped me go from beginner to placed in under 6 months."
+        "MeetScribe's project-driven tracks and mentorship helped me go from beginner to placed in under 6 months."
     },
     {
       name: "Priya Mehta",
@@ -62,7 +62,7 @@ function Home()
       <header className="nav">
         <div className="container nav-row">
           <Link to="/" className="brand">
-            <img src={logo} alt="TaskLink" className="brand-logo" />
+            <img src={logo} alt="MeetScribe" className="brand-logo" />
           </Link>
 
           <nav className="links">
@@ -108,7 +108,7 @@ function Home()
             <div className="hero-card-inner">
               <h2>Internships that Lead to Real Careers</h2>
               <p>
-                TaskLink bridges the gap between talent and opportunity — start your journey today!
+                MeetScribe bridges the gap between talent and opportunity — start your journey today!
               </p>
               <div className="tiny-cta">
                 <Link to="/courses" className="btn tiny primary">Browse tracks</Link>
@@ -143,7 +143,7 @@ function Home()
       <section className="container section">
         <div className="section-head">
           <h2>Trusted by top companies</h2>
-          <p className="muted">Companies that hired TaskLink students</p>
+          <p className="muted">Companies that hired MeetScribe students</p>
         </div>
 
         <div className="companies-grid">
@@ -182,7 +182,7 @@ function Home()
       <footer className="site-footer">
         <div className="container footer-grid">
           <div className="footer-brand">
-            <img src={logo} alt="TaskLink" className="footer-logo" />
+            <img src={logo} alt="MeetScribe" className="footer-logo" />
             <p className="muted">Where practical skills meet opportunity. Build projects, get hired.</p>
           </div>
 
@@ -206,13 +206,13 @@ function Home()
 
           <div>
             <h4>Get in touch</h4>
-            <p className="muted">support@tasklink.example</p>
+            <p className="muted">support@MeetScribe.example</p>
             <p className="muted">Mon - Fri, 10am - 6pm</p>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <div className="container">&copy; {new Date().getFullYear()} TaskLink · All rights reserved</div>
+          <div className="container">&copy; {new Date().getFullYear()} MeetScribe · All rights reserved</div>
         </div>
       </footer>
 {/* ------------------------------------------------------------------------------------------------------------------------------- */}

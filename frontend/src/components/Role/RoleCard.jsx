@@ -36,7 +36,12 @@ function RoleCard() {
       }
     } catch (error) {
       console.error("Error saving role:", error.response?.data || error.message);
-      alert("Failed to save role. Please try again.");
+      alert(
+        error.response?.data?.message ||
+          (error.code === "ERR_NETWORK"
+            ? "Could not reach the backend at http://localhost:5001. Make sure it is running (npm run backend)."
+            : "Failed to save role. Please try again.")
+      );
     }
   }
 

@@ -35,3 +35,8 @@ lerna-debug.log*
 
 # uploads (user files)
 uploads/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/

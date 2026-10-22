@@ -17,16 +17,35 @@ dotenv.config();
 const app = express();
 
 // CORS globally
-app.use(
-    cors({
-        origin: "http://localhost:5173",
-        methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-        allowedHeaders: ["Content-Type", "Authorization"],
-        credentials: true,
-    })
-);
+// NOTE: the Vite dev server auto-increments its port (5173 -> 5174 -> 5175 ...)
+// when the default port is busy, so the allowed origin CANNOT be hard-coded to a
+// single port. Every localhost / 127.0.0.1 dev origin is accepted, and extra
+// origins (e.g. a deployed frontend) can be added through ALLOWED_ORIGINS.
+const EXTRA_ORIGINS = (process.env.ALLOWED_ORIGINS || "")
+    .split(",")
+    .map((o) => o.trim())
+    .filter(Boolean);
+
+const LOCAL_DEV_ORIGIN = /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/;
+
+const corsOptions = {
+    origin(origin, callback) {
+        // No Origin header -> same-origin request, curl, or native app
+        if (!origin) return callback(null, true);
+        if (LOCAL_DEV_ORIGIN.test(origin) || EXTRA_ORIGINS.includes(origin)) {
+            return callback(null, true);
+        }
+        console.error(`CORS blocked request from origin: ${origin}`);
+        return callback(new Error(`CORS blocked for origin: ${origin}`));
+    },
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+};
+
+app.use(cors(corsOptions));
 // handle preflight requests
-app.options("*", cors());
+app.options("*", cors(corsOptions));
 
 // middleware to parse data
 app.use(express.json());
@@ -36,7 +55,7 @@ app.use(express.urlencoded({ extended: true }));
 // static files (uploads)
 app.use(
   "/uploads",
-  cors({ origin: "http://localhost:5173" }),
+  cors(corsOptions),
   express.static(path.join(process.cwd(), "uploads"))
 );
 

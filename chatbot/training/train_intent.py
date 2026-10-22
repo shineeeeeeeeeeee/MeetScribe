@@ -7,7 +7,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 
 # Load data
-data = pd.read_csv("../dataset/intent_data.csv")
+data = pd.read_csv("./dataset/intent_data.csv")
 
 X = data["text"]
 y = data["label"]
@@ -25,13 +25,13 @@ pipeline = Pipeline([
 pipeline.fit(X, y)
 
 # Save pipeline 
-pickle.dump(pipeline, open("../models/intent_pipeline.pkl", "wb"))
+pickle.dump(pipeline, open("./models/intent_pipeline.pkl", "wb"))
 
 # For backward compatibility also save separate model and vectorizer
 vectorizer = pipeline.named_steps['tfidf']
 model = pipeline.named_steps['clf']
 
-pickle.dump(model, open("../models/intent_model.pkl", "wb"))
-pickle.dump(vectorizer, open("../models/vectorizer.pkl", "wb"))
+pickle.dump(model, open("./models/intent_model.pkl", "wb"))
+pickle.dump(vectorizer, open("./models/vectorizer.pkl", "wb"))
 
 print("Intent pipeline trained and saved.")

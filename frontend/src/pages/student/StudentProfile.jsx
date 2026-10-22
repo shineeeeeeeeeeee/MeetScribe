@@ -182,7 +182,7 @@ export default function StudentProfile() {
             <header className="dashboard-header">
                 <div className="header-container">
                     <div className="header-brand" onClick={() => navigate(`/s/${student_id}`)} style={{ cursor: "pointer" }}>
-                        <img src={logo} alt="TaskLink" className="brand-logo" />
+                        <img src={logo} alt="MeetScribe" className="brand-logo" />
                         <h1 className="brand-name">Profile</h1>
                     </div>
                     <div className="header-actions">

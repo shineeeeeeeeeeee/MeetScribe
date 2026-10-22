@@ -1,5 +1,5 @@
 {
-    "name": "task-link",
+    "name": "MeetScribe",
     "private": true,
     "version": "1.0.0",
     "workspaces": [
@@ -9,6 +9,7 @@
     "scripts": {
         "frontend": "npm run dev -w frontend",
         "backend": "npm run dev -w backend",
+        "chatbot": "cd chatbot && .venv/bin/python api/chatbot_api.py",
         "start": "npm run dev --workspaces --if-present"
     },
     "dependencies": {

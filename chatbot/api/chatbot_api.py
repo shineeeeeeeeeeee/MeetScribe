@@ -9,15 +9,15 @@ from recommend import get_user_data, recommend_jobs
 # Load intent model (prefer pipeline if available)
 import os
 pipeline = None
-if os.path.exists("../models/intent_pipeline.pkl"):
-    pipeline = pickle.load(open("../models/intent_pipeline.pkl", "rb"))
+if os.path.exists("./models/intent_pipeline.pkl"):
+    pipeline = pickle.load(open("./models/intent_pipeline.pkl", "rb"))
 
 # Backwards compatibility: load separate model/vectorizer if pipeline not present
 intent_model = None
 vectorizer = None
 if pipeline is None:
-    intent_model = pickle.load(open("../models/intent_model.pkl", "rb"))
-    vectorizer = pickle.load(open("../models/vectorizer.pkl", "rb"))
+    intent_model = pickle.load(open("./models/intent_model.pkl", "rb"))
+    vectorizer = pickle.load(open("./models/vectorizer.pkl", "rb"))
 else:
     intent_model = pipeline
     # pipeline contains both vectorizer and classifier

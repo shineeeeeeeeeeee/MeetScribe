@@ -69,9 +69,9 @@ function LoginForm() {
         //------------------------------------THIS HAS TO BE UPDATED-----------------------------------------------
         // INSTEAD OF FULLNAME SOME UNIQUE COMPANY ID MUST BE USED TO IDENTIFY THE COMPANY.
         const companyId = res.data.user.fullName;
-        sessionStorage.setItem("tasklink_company_id", companyId);
-        sessionStorage.setItem("tasklink_company_name", res.data.user.fullName);
-        sessionStorage.setItem("tasklink_company_email", res.data.user.email);
+        sessionStorage.setItem("MeetScribe_company_id", companyId);
+        sessionStorage.setItem("MeetScribe_company_name", res.data.user.fullName);
+        sessionStorage.setItem("MeetScribe_company_email", res.data.user.email);
 
         navigate(`/c/${companyId}`, { state: { fullName: res.data.user.fullName, email: res.data.user.email } });
       }
@@ -80,7 +80,12 @@ function LoginForm() {
       setFormData({ identifier: "", password: "" });
     } catch (err) {
       console.error("Login error:", err.response?.data || err.message);
-      alert(err.response?.data?.message || "Login failed. Please check your credentials.");
+      alert(
+        err.response?.data?.message ||
+          (err.code === "ERR_NETWORK"
+            ? "Could not reach the backend at http://localhost:5001. Make sure it is running (npm run backend)."
+            : "Login failed. Please check your credentials.")
+      );
     }
   }
 

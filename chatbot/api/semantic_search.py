@@ -4,7 +4,7 @@ from sentence_transformers import SentenceTransformer
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
-with open("../dataset/internship_faq.json") as f:
+with open("./dataset/internship_faq.json") as f:
     faq_data = json.load(f)
 
 questions = [item["question"] for item in faq_data]

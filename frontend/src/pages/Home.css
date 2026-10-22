@@ -648,9 +648,10 @@ body {
   gap: 8px;
 }
 
-.company-name {
+.ach-top .company-name {
   font-weight: 800;
   font-size: 18px;
+  color: #ffffff;
 }
 
 .offer {

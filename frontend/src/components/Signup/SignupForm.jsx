@@ -76,10 +76,14 @@ function SignupForm() {
       } catch (err) {
         console.error("Signup error:", err.response?.data || err.message);
 
-        // Optional: handle backend error messages
-        if (err.response?.data?.message) {
-          alert(err.response.data.message);
-        }
+        // Always surface the failure: a blocked request (backend down, wrong port
+        // or a CORS rejection) has no response body, so nothing would be shown.
+        const message =
+          err.response?.data?.message ||
+          (err.code === "ERR_NETWORK"
+            ? "Could not reach the backend at http://localhost:5001. Make sure it is running (npm run backend)."
+            : err.message || "Signup failed. Please try again.");
+        alert(message);
       }
     }
   };

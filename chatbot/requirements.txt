@@ -1,4 +1,6 @@
 flask
 numpy
-sentence-transformers
 requests
+scikit-learn==1.8.0
+pandas
+sentence-transformers
