@@ -84,5 +84,15 @@ def chatbot():
 
     return jsonify({"reply": answer})
 
+
+@app.errorhandler(Exception)
+def handle_exception(err):
+    app.logger.error("Unhandled chatbot exception: %s", err, exc_info=True)
+    return jsonify({"error": "Internal server error"}), 500
+
+
 if __name__ == "__main__":
-    app.run(port=5002)
+    try:
+        app.run(port=5002, threaded=True)
+    except OSError as err:
+        print(f"Failed to start chatbot on port 5002: {err}")
