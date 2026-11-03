@@ -70,6 +70,14 @@ uploadDirs.forEach((dir) => {
 
 connectDB();
 
+// keep the server alive if a single request handler throws unexpectedly
+process.on("uncaughtException", (err) => {
+    console.error("UNCAUGHT EXCEPTION:", err);
+});
+process.on("unhandledRejection", (err) => {
+    console.error("UNHANDLED REJECTION:", err);
+});
+
 // routes
 app.use("/api/auth", authRoutes);
 app.use("/api/jobs", jobRoutes);
@@ -86,6 +94,12 @@ app.get("/", (req, res) => res.send("Backend running successfully"));
 // chatbot test
 app.use(express.json());
 app.use("/api/chatbot", chatbotRoute);
+
+// global error handler (keeps server alive on handler errors)
+app.use((err, req, res, next) => {
+    console.error("REQUEST ERROR:", err);
+    res.status(err.status || 500).json({ error: err.message || "Internal server error" });
+});
 
 // start server
 const PORT = process.env.PORT || 5001;
